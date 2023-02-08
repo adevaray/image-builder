@@ -60,6 +60,8 @@ fi
 # download binary, verify shasum, make it executable and clean up trash files.
 _bin_dir="$(dirname "${_tarfile}")"
 mkdir -p "${_bin_dir}" && cd "${_bin_dir}"
+echo "curl -SsL "${_bin_url}" -o "${_tarfile}""
+echo $(which curl)
 curl -SsL "${_bin_url}" -o "${_tarfile}"
 tar -C "${_bin_dir}" -xzf "${_tarfile}"
 rm "${_tarfile}"
