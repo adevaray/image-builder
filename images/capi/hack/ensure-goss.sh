@@ -20,6 +20,7 @@ set -o pipefail
 
 [[ -n ${DEBUG:-} ]] && set -o xtrace
 
+echo "Hi"
 source hack/utils.sh
 
 # SHA are for amd64 arch.
