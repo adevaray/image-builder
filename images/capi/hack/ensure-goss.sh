@@ -63,7 +63,9 @@ _bin_dir="$(dirname "${_tarfile}")"
 mkdir -p "${_bin_dir}" && cd "${_bin_dir}"
 echo "curl -SsL "${_bin_url}" -o "${_tarfile}""
 echo $(which curl)
-curl -SsL "${_bin_url}" -o "${_tarfile}"
+#curl -SsL "${_bin_url}" -o "${_tarfile}"
+curl -LJO "${_bin_url}"
+mv packer-provisioner-goss-v3.1.4-linux-amd64.tar.gz /root/.packer.d/plugins/packer-provisioner-goss.tar.gz
 tar -C "${_bin_dir}" -xzf "${_tarfile}"
 rm "${_tarfile}"
 printf "%s *${_binfile}" "${_sha256}" >"${_binfile}.sha256"
