@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env bash -x
 
 # Copyright 2019 The Kubernetes Authors.
 #
@@ -61,10 +61,10 @@ fi
 # download binary, verify shasum, make it executable and clean up trash files.
 _bin_dir="$(dirname "${_tarfile}")"
 mkdir -p "${_bin_dir}" && cd "${_bin_dir}"
-echo "curl -SsL "${_bin_url}" -o "${_tarfile}""
+#echo "curl -SsL "${_bin_url}" -o "${_tarfile}""
 echo $(which curl)
 #curl -SsL "${_bin_url}" -o "${_tarfile}"
-curl -LJO "${_bin_url}"
+curl "${_bin_url}"
 mv packer-provisioner-goss-v3.1.4-linux-amd64.tar.gz /root/.packer.d/plugins/packer-provisioner-goss.tar.gz
 tar -C "${_bin_dir}" -xzf "${_tarfile}"
 rm "${_tarfile}"
