@@ -87,6 +87,8 @@ ensure_py3() {
     exit 1
   fi
   if ! command -v pip3 >/dev/null 2>&1; then
+    echo " I am here"
+    echo $(which curl)
     curl -SsL https://bootstrap.pypa.io/get-pip.py -o get-pip.py
     python3 get-pip.py --user
     rm -f get-pip.py
